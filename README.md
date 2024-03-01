@@ -1,8 +1,20 @@
-# `@ubiquity/ts-template`
+# `@ubiquity/audit.ubq.fi`
 
-This template repository includes support for the following:
+#### Install Dependencies
+- yarn
 
-- TypeScript
-- Environment Variables
-- Conventional Commits
-- Automatic deployment to Cloudflare Pages
+#### Build
+- yarn build
+
+### Start UI
+
+- yarn start
+
+Test Uses:
+
+```json
+{
+  "WALLET": "0xrandomwallet",
+  "REPO": "https://github.com/repo/repo",
+  "PAT": "YOUR_PAT"
+}
