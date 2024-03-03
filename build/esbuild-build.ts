@@ -1,7 +1,7 @@
 import esbuild from "esbuild";
 import * as dotenv from "dotenv";
 
-const typescriptEntries = ["static/scripts/rewards/index.ts", "static/scripts/audit-report/audit.ts"];
+const typescriptEntries = ["static/scripts/audit-report/audit.ts"];
 const cssEntries = ["static/styles/rewards/rewards.css", "static/styles/audit-report/audit.css"];
 export const entries = [...typescriptEntries, ...cssEntries];
 

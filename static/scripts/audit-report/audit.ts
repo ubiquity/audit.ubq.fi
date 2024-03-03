@@ -4,7 +4,7 @@ import { createClient } from "@supabase/supabase-js";
 import axios from "axios";
 import { ethers } from "ethers";
 import GoDB from "godb";
-import { permit2Abi } from "../rewards/abis";
+import { permit2Abi } from "./abis";
 import { Chain, ChainScan, DATABASE_NAME, NULL_HASH, NULL_ID } from "./constants";
 import {
   getCurrency,
@@ -25,9 +25,9 @@ import {
   GoDBSchema,
   ObserverKeys,
   QuickImport,
+  RewardPermit,
   SavedData,
   StandardInterface,
-  TxData,
 } from "./types";
 import { getTxInfo } from "./utils/getTransaction";
 
@@ -562,7 +562,7 @@ async function handleRPCData(data: ChainScanResult) {
         transferDetails: { to },
         owner,
         signature,
-      } = decodedFunctionData as unknown as TxData;
+      } = decodedFunctionData as RewardPermit;
       updateQueue.add(signature, {
         k: signature,
         t: "ether",

@@ -6,11 +6,13 @@
   "language": "en",
   "words": [
     "binkey",
+    "Knip",
     "binsec",
     "chainlist",
     "cirip",
     "dataurl",
     "devpool",
+    "xrandomwallet",
     "ethersproject",
     "fract",
     "gnosisscan",
@@ -37,7 +39,6 @@
     "xmark",
     "supabase",
     "SUPABASE"
-
   ],
   "dictionaries": ["typescript", "node", "software-terms", "html"],
   "import": ["@cspell/dict-typescript/cspell-ext.json", "@cspell/dict-node/cspell-ext.json", "@cspell/dict-software-terms"],
