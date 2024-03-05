@@ -128,3 +128,61 @@ interface GoDBTableSchema {
 export interface GoDBSchema {
   [table: string]: GoDBTableSchema;
 }
+
+export type ERC20Permit = {
+  type: "erc20-permit";
+  permit: {
+    permitted: {
+      token: string;
+      amount: string;
+    };
+    nonce: string;
+    deadline: string;
+  };
+  transferDetails: {
+    to: string;
+    requestedAmount: string;
+  };
+  owner: string;
+  signature: string;
+  networkId: number;
+};
+
+export type ERC721Permit = {
+  type: "erc721-permit";
+  permit: {
+    permitted: {
+      token: string;
+      amount: string;
+    };
+    nonce: string;
+    deadline: string;
+  };
+  transferDetails: {
+    to: string;
+    requestedAmount: string;
+  };
+  owner: string;
+  signature: string;
+  networkId: number;
+  nftMetadata: {
+    GITHUB_ORGANIZATION_NAME: string;
+    GITHUB_REPOSITORY_NAME: string;
+    GITHUB_ISSUE_ID: string;
+    GITHUB_USERNAME: string;
+    GITHUB_CONTRIBUTION_TYPE: string;
+  };
+  request: {
+    beneficiary: string;
+    deadline: string;
+    keys: string[];
+    nonce: string;
+    values: string[];
+  };
+};
+
+export type RewardPermit = ERC20Permit | ERC721Permit;
+
+export function permitCheck(permit: RewardPermit): permit is Erc20Permit {
+  return permit.type === "erc20-permit";
+}
