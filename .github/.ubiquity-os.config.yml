@@ -1,20 +1,21 @@
 plugins:
-  - uses:
-    - plugin: https://ubiquity-os-command-start-stop-development.ubiquity.workers.dev
-      with:
-        reviewDelayTolerance: "3 Days"
-        taskStaleTimeoutDuration: "30 Days"
-        startRequiresWallet: true
-        maxConcurrentTasks:
-          member: 2
-          contributor: 2
-        emptyWalletText: "Please set your wallet address with the /wallet command first and try again."
-        rolesWithReviewAuthority:
-          - COLLABORATOR
-          - OWNER
-          - MEMBER
-          - ADMIN
-        requiredLabelsToStart: ["Priority: 3 (High)", "Priority: 4 (Urgent)", "Priority: 5 (Emergency)"]
+  - skipBotEvents: false
+    uses:
+      - plugin: https://ubiquity-os-command-start-stop-development.ubiquity.workers.dev
+        with:
+          reviewDelayTolerance: "3 Days"
+          taskStaleTimeoutDuration: "30 Days"
+          startRequiresWallet: true
+          maxConcurrentTasks:
+            member: 2
+            contributor: 2
+          emptyWalletText: "Please set your wallet address with the /wallet command first and try again."
+          rolesWithReviewAuthority:
+            - COLLABORATOR
+            - OWNER
+            - MEMBER
+            - ADMIN
+          requiredLabelsToStart: ["Priority: 3 (High)", "Priority: 4 (Urgent)", "Priority: 5 (Emergency)"]
   - uses:
     - plugin: https://ubiquibot-command-wallet-development.ubiquity.workers.dev
       with:
@@ -203,7 +204,7 @@ plugins:
                         countWords: true
                 - role:
                   - ISSUE_CONTRIBUTOR
-                  - PULL_CONTRIBUTOR
+                  - ISSUE_ASSIGNEE
                   multiplier: 0.25
                   rewards:
                     wordValue: 0.1
@@ -271,7 +272,7 @@ plugins:
                 - role:
                   - PULL_SPECIFICATION
                   - PULL_AUTHOR
-                  - ISSUE_ASSIGNEE
+                  - PULL_CONTRIBUTOR
                   - PULL_ASSIGNEE
                   multiplier: 0
                   rewards:
