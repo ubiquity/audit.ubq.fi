@@ -17,8 +17,12 @@ jobs:
         with:
           node-version: 20.10.0
 
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.4
+
       - name: Install toolchain
-        run: yarn install
+        run: HUSKY=0 yarn install --frozen-lockfile
 
       - name: Report knip results to pull request
         uses: Codex-/knip-reporter@v2
